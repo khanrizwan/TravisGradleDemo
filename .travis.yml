@@ -15,7 +15,11 @@ android:
     - platform-tools
   licenses:
     - android-sdk-license-.+
-before_install:
-  - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
-  - emulator -avd test -no-skin -no-audio -no-window &
-  - android-wait-for-emulator
+    
+#before_install:
+#  - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
+#  - emulator -avd test -no-skin -no-audio -no-window &
+#  - android-wait-for-emulator
+
+script:
+  - ./gradlew app:check
